@@ -17,19 +17,14 @@
 ## Решение:
 
 require 'digest'
-input_string = gets.chomp();
-md5 = Digest::MD5.new          
-
-i = 0;
+a = gets.chomp()
+i = 0
 loop do
-	md5.update input_string
-	md5 << "#{i.to_s}"
-	my_md = md5.hexdigest
-	if my_md[0..4] == "00000";
-		puts i
-		break
-	end
-	
-	md5.reset
-	i += 1;
-end
+  b = a + i.to_s
+  md5 = Digest::MD5.hexdigest b
+  if md5[0]=='0' and md5[1]=='0'and md5[2]=='0' and md5[3]=='0' and md5[4]=='0'
+     puts(i)
+     break
+  end
+  i=i+1
+  end
