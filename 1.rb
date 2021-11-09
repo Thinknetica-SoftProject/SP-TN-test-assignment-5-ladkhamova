@@ -16,8 +16,16 @@
 #
 ## Решение:
 
-file = File.open('data/1.txt')
-a = IO.read(file)
-up = a.count '('
-down = a.count ')'
-puts up-down
+floor = 0
+array = ''
+File.open("data/1.txt", 'r') do |file|
+  array << file.read.to_s
+end
+array.each_char do |symbol|
+  if symbol == '('
+    floor += 1
+  elsif symbol == ')'
+    floor -= 1
+  end
+end
+puts floor
