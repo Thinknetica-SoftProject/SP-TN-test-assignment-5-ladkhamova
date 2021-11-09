@@ -17,16 +17,14 @@
 ## Решение:
 
 require 'digest'
-md5 = Digest::MD5.new
-user_input = gets.chomp
-for i in (1..999999999999) do
-  md5 << user_input
-  md5 << i.to_s
-  hex_array = md5.to_s.split("")
-  if ((hex_array[0] == '0') && (hex_array[1] == '0') && (hex_array[2] == '0') &&
-      (hex_array[3] == '0') && (hex_array[4] == '0'))
-    puts i
-    break
+a = gets.chomp()
+i = 0
+loop do
+  b = a + i.to_s
+  md5 = Digest::MD5.hexdigest b
+  if md5[0]=='0' and md5[1]=='0'and md5[2]=='0' and md5[3]=='0' and md5[4]=='0'
+     puts(i)
+     break
   end
-  md5 = md5.reset
-end
+  i=i+1
+  end
