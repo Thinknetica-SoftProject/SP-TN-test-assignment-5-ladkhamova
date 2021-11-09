@@ -15,5 +15,15 @@
 #
 #
 ## Решение:
+f = File.new("data/4.txt")
+total = 0
 
-
+while line = f.gets
+    l = line.split("x").map(&:to_i).sort
+    len = l[0]
+    hei = l[1]
+    wid = l[2]
+    total += 2*wid*len + 2*len*hei + 2*hei*wid + len*hei
+end
+f.close
+puts total
