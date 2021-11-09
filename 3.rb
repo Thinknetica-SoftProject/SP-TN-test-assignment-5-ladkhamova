@@ -10,4 +10,12 @@
 #
 ## Решение:
 
-
+numbers = []
+i = 0
+code = 0
+File.open("data/3.txt", 'r').each_line do |line|
+  numbers << line.split.map(&:to_i)
+  code += numbers[i].max - numbers[i].min
+  i += 1
+end
+puts code
